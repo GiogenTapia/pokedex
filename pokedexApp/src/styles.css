@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  width: 100%;
+background: rgb(219,39,39);
+background: linear-gradient(0deg, rgba(219,39,39,1) 0%, rgba(50,0,208,1) 100%);
+background-image: linear-gradient(to right top, #5d63d8, #9655c8, #bb46b2, #d43a96, #e33679, #e33679, #e33679, #e33679, #d43a96, #bb46b2, #9655c8, #5d63d8);
+}
+html, body {
+  min-height: 100%;
+}

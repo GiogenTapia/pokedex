@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-4 mt-3 text-center"
+    *ngFor="let pok of listPokemon">
+      <div class="card"
+      (click)="search(pok.id)"
+      >
+        <img [src]="pok.sprites.front_default" class="card-img-top" alt="...">
+        <h5 class="card-title">#{{pok.id}}</h5>
+        <div class="card-body">
+          {{pok.name | titlecase}}
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
