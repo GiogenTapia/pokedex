@@ -2,14 +2,14 @@
   <div class="row">
 
     <div class="col-sm-4 mt-3 text-center"
-    *ngFor="let pok of listPokemon">
+    *ngFor="let pok of listPok?.results;let i = index">
       <div class="card"
-      (click)="search(pok.id)"
+      (click)="search(i+1)"
       >
-        <img [src]="pok.sprites.front_default" class="card-img-top" alt="...">
-        <h5 class="card-title">#{{pok.id}}</h5>
+        <img [src]="imageUrl+(i+1)+'.png'" class="card-img-top" alt="...">
+        <h5 class="card-title">#{{i+1}}</h5>
         <div class="card-body">
-          {{pok.name | titlecase}}
+          {{pok.name| titlecase}}
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
+import { Result } from './../../interfaces/pokemonResponse.interface';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Pokemon } from 'src/app/Pokemon/interfaces';
+import { Pokemon, PokemonResponse } from 'src/app/Pokemon/interfaces';
 import { PokemonService } from 'src/app/Pokemon/service/pokemon.service';
 
 @Component({
@@ -13,13 +14,18 @@ export class CardPokemonComponent implements OnInit {
   private _pokemonService = inject(PokemonService);
   private _route = inject(Router);
 
+  public imageUrl= 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
+
+  public listPok!: PokemonResponse;
+
   get listPokemon(): Pokemon[]{
     return this._pokemonService.getPokemonList()
   }
 
   ngOnInit(): void {
-
-    this._pokemonService.getPokemonByIndex(12);
+    this._pokemonService.getAllPokemon(12).subscribe(
+      (resp)=> this.listPok = resp
+    );
 
   }
 
