@@ -3,7 +3,8 @@
 
     <div class="col-sm-4 mt-3 text-center"
     *ngFor="let pok of listPok?.results;let i = index">
-      <div class="card"
+      <div class="card animate__animated animate__fadeIn animate__bounce"
+
       (click)="search(i+1)"
       >
         <img [src]="imageUrl+(i+1)+'.png'" class="card-img-top" alt="...">

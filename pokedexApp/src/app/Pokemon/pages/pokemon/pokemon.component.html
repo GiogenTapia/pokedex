@@ -1,4 +1,23 @@
-<div class="container">
-  <h1>{{pokemon.name}}</h1>
 
+<div class="loader" *ngIf="!load"></div>
+
+<div class="container" *ngIf="pokemon && pokemonInfo">
+
+<div class="row">
+    <div class="card col animate__animated animate__fadeInUp" >
+
+      <h1 class="text-center mt-5">{{pokemon.name | titlecase}}</h1>
+  <div class="row mt-5">
+    <div class="col-sm-6 col-md-5 text-center p-0">
+      <img [src]="pokemon.sprites.front_default" class="card-img" alt="...">
+    </div>
+    <div class="col-sm-6 p-0 text-left">
+      <p> {{pokemonInfo.flavor_text_entries[0].flavor_text}} </p>
+    </div>
+  </div>
+
+    </div>
+
+  </div>
 </div>
+

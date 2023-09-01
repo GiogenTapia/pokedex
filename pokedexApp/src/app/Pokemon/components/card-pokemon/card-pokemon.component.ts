@@ -18,9 +18,6 @@ export class CardPokemonComponent implements OnInit {
 
   public listPok!: PokemonResponse;
 
-  get listPokemon(): Pokemon[]{
-    return this._pokemonService.getPokemonList()
-  }
 
   ngOnInit(): void {
     this._pokemonService.getAllPokemon(12).subscribe(

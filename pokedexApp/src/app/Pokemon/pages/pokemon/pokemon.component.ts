@@ -1,7 +1,8 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonService } from '../../service/pokemon.service';
-import { Pokemon } from '../../interfaces';
+import { Pokemon, PokemonSpecies } from '../../interfaces';
+import { debounceTime, switchMap } from 'rxjs';
 
 @Component({
   templateUrl: './pokemon.component.html',
@@ -10,20 +11,34 @@ import { Pokemon } from '../../interfaces';
 export class PokemonComponent implements OnInit{
 
   private _route = inject(ActivatedRoute);
-  private _idPokemon = '';
   private _pokemonService = inject(PokemonService);
 
   public pokemon !: Pokemon;
+  public pokemonInfo !: PokemonSpecies;
+  public load: boolean = false;
+
 
   constructor(){
-    this._idPokemon = this._route.snapshot.paramMap.get('id') || '';
   }
+
+
 
   ngOnInit(): void {
 
-    this._pokemonService.getPokemonById(this._idPokemon).subscribe(
-      (pokemon)=> this.pokemon = pokemon
-    )
+
+    this._route.params.pipe(
+      debounceTime(500),
+      switchMap(({id})=> this._pokemonService.getPokemonById(id))
+      ).subscribe(
+        (pokemon)=>{
+          this.pokemon = pokemon;
+          this._pokemonService.getSpeciesById(pokemon.id).subscribe(
+            resp => {this.pokemonInfo = resp;
+            this.load = true}
+          )
+        }
+      );
+
   }
 
 }
