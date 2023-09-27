@@ -15,6 +15,7 @@ export class PokemonService {
 
   private pokemon !: Pokemon;
 
+
   constructor() { }
 
 
@@ -27,7 +28,7 @@ export class PokemonService {
 
   getAllPokemon(index: number):Observable<PokemonResponse>{
 
-    return this._http.get<PokemonResponse>(`${this._url}/pokemon?limit=${index}`);
+    return this._http.get<PokemonResponse>(`${this._url}/pokemon?limit=10&offset=${index}`);
   }
 
   getSpeciesById(id: number): Observable<PokemonSpecies> {

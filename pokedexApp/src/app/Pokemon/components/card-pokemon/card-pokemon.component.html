@@ -2,20 +2,36 @@
   <div class="row">
 
     <div class="col-sm-4 mt-3 text-center"
-    *ngFor="let pok of listPok?.results;let i = index">
+    *ngFor="let pok of listPok;let i = index">
       <div class="card animate__animated animate__fadeIn animate__bounce"
 
-      (click)="search(i+1)"
+      (click)="search(pokemonNum[i])"
       >
-        <img [src]="imageUrl+(i+1)+'.png'" class="card-img-top" alt="...">
-        <h5 class="card-title">#{{i+1}}</h5>
+        <img [src]="imageUrl+pokemonNum[i]+'.png'" class="card-img-top" alt="...">
+        <h5 class="card-title">#{{ pokemonNum[i] }}</h5>
         <div class="card-body">
-          {{pok.name| titlecase}}
+          {{pok.name | titlecase}}
         </div>
       </div>
     </div>
 
+    <div class="container text-center mt-2">
 
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item">
+              </li>
+              <li class="page-item" *ngFor="let index of indexPage"><a class="page-link" (click)="navigate(index - 1)"> {{index}} </a></li>
+
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+
+    </div>
 
   </div>
 </div>

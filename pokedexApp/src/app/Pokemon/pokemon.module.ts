@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { PokedexComponent } from './pages/pokedex/pokedex.component';
 import { PokemonComponent } from './pages/pokemon/pokemon.component';
 import { CardPokemonComponent } from './components/card-pokemon/card-pokemon.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 
 
@@ -11,8 +10,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
   declarations: [
     PokedexComponent,
     PokemonComponent,
-    CardPokemonComponent,
-    NavBarComponent
+    CardPokemonComponent
   ],
   imports: [
     CommonModule
