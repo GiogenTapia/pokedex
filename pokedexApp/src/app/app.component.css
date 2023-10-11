@@ -1,9 +1,17 @@
 h1 {
   color: white;
   cursor: pointer;
-  width: auto;
-  height: auto;
-  margin: 5px;
+  display: flex;
+  margin-left: 5%;
+  padding: 30px;
+}
+
+div{
+
+  background-color: red;
+  height: 100%;
+  box-shadow: 10px 5px 5px rgb(0, 0, 0);
+
 }
 
 

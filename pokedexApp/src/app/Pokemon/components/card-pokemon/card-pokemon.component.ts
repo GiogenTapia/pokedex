@@ -13,13 +13,16 @@ export class CardPokemonComponent implements OnInit {
 
   private _pokemonService = inject(PokemonService);
   private _route = inject(Router);
+  private endPagination: number = 5;
+  private startPagintation: number =0;
 
 
 
   public imageUrl= 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
   public listPok!: Result [];
   public pokemonNum : number[] = [];
-  public indexPage: number [] = [1,2,3,4,5,6,7,8,9,10];
+  public indexPage: number [] = [0,1,2,3,4,5];
+  public flag: number = 0;
 
   ngOnInit(): void {
     this._pokemonService.getAllPokemon(0).subscribe(
@@ -43,8 +46,23 @@ export class CardPokemonComponent implements OnInit {
   }
 
   navigate(index: number){
+    this.flag = index;
+    this.consulta(index);
+    this.checkPagination(this.flag);
 
-    this._pokemonService.getAllPokemon(index * 10).subscribe(
+  }
+
+  pagintation(index: number){
+    if(this.flag + index < 0) return;
+    this.checkPagination(this.flag);
+    this.flag =  this.flag + index;
+    this.consulta(this.flag);
+
+  }
+
+  consulta( index: number){
+
+    this._pokemonService.getAllPokemon(index * 12).subscribe(
       (resp)=> {
         this.listPok = resp.results
 
@@ -55,7 +73,38 @@ export class CardPokemonComponent implements OnInit {
         });
         console.log(this.pokemonNum);}
     );
+  }
 
+  checkPagination(index : number){
+switch (index) {
+
+  case this.endPagination:
+    this.indexPage.splice(0);
+    this.startPagintation = this.endPagination;
+    this.endPagination = this.startPagintation + 5;
+
+    for (let i = this.startPagintation; i <= this.endPagination; i++) {
+      this.indexPage.push(i);
+
+    }
+    break;
+
+    case this.startPagintation:
+
+    if(this.startPagintation===0) return;
+      this.indexPage.splice(0);
+      this.endPagination = this.startPagintation;
+      this.startPagintation = this.endPagination - 5;
+
+      for (let i = this.startPagintation; i <= this.endPagination; i++) {
+        this.indexPage.push(i);
+
+      }
+    break;
+
+  default:
+    break;
+}
   }
 
 }

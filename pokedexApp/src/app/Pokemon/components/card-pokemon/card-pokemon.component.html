@@ -15,22 +15,15 @@
       </div>
     </div>
 
-    <div class="container text-center mt-2">
-
-      <div class="row">
-        <div class="col-12">
-          <nav aria-label="Page navigation example">
-            <ul class="pagination">
-              <li class="page-item">
+    <div class="container  text-center mt-2">
+            <ul class="pagination  justify-content-md-center">
+              <li class="page-item mr-3"><a class="page-link" (click)="pagintation(-1)">Previous</a></li>
+              <li class="page-item mt-2" *ngFor="let index of indexPage" routerLinkActive="active" [id]="index"
+              [ngClass]=" {'active': index == flag }" >
+                <a class="page-link" (click)="navigate(index)"> {{index + 1}} </a>
               </li>
-              <li class="page-item" *ngFor="let index of indexPage"><a class="page-link" (click)="navigate(index - 1)"> {{index}} </a></li>
-
+              <li class="page-item"><button class="page-link"(click)="pagintation(1)">Next</button></li>
             </ul>
-          </nav>
-        </div>
-      </div>
-
-
     </div>
 
   </div>
