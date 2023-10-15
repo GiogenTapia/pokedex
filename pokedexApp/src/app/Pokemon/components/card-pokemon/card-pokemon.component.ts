@@ -18,7 +18,7 @@ export class CardPokemonComponent implements OnInit {
 
 
 
-  public imageUrl= 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
+  public imageUrl= 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/';
   public listPok!: Result [];
   public pokemonNum : number[] = [];
   public indexPage: number [] = [0,1,2,3,4,5];

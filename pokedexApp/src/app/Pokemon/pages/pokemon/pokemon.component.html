@@ -10,7 +10,7 @@
       <h1 class="text-center mt-5">{{pokemon.name | titlecase}}</h1>
   <div class="row mt-5">
     <div class="col-sm-6 col-md-5 text-center p-0" >
-      <img [src]="pokemon.sprites.front_default" class="card-img" alt="...">
+      <img [src]="pokemon.sprites.other?.['official-artwork']?.front_default" class="card-img" alt="...">
     </div>
     <div class="col-sm-6 p-0 text-left">
       <p> {{pokemonInfo.flavor_text_entries[1].flavor_text}} </p>
