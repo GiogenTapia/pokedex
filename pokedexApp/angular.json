@@ -16,6 +16,7 @@
             "outputPath": "dist/pokedex-app",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "allowedCommonJsDependencies": ["apexcharts"],
             "polyfills": [
               "zone.js"
             ],
@@ -27,7 +28,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["node_modules/apexcharts/dist/apexcharts.min.js"]
           },
           "configurations": {
             "production": {

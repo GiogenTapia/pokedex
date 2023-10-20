@@ -41,17 +41,17 @@ export interface EvolutionChain {
 
 export interface FlavorTextEntry {
   flavor_text: string;
-  language:    Color;
-  version:     Color;
+  language:    Lenguage;
+  version:     Version;
 }
 
 export interface Genus {
   genus:    string;
-  language: Color;
+  language: string;
 }
 
 export interface Name {
-  language: Color;
+  language: string;
   name:     string;
 }
 
@@ -69,4 +69,14 @@ export interface PokedexNumber {
 export interface Variety {
   is_default: boolean;
   pokemon:    Color;
+}
+
+export interface Version {
+  name: string,
+  url: string
+}
+
+export interface Lenguage {
+  name: string,
+  url: string
 }

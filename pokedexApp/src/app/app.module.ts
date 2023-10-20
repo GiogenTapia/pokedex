@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from "@angular/common/http";
 import { PokemonModule } from './Pokemon/pokemon.module';
+import { NgApexchartsModule } from 'ng-apexcharts';
+
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { PokemonModule } from './Pokemon/pokemon.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    PokemonModule
+    PokemonModule,
+    NgApexchartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
