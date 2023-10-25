@@ -49,6 +49,7 @@ export class CardPokemonComponent implements OnInit {
     this.flag = index;
     this.consulta(index);
     this.checkPagination(this.flag);
+    window.scrollTo(0, 0);
 
   }
 
@@ -57,6 +58,8 @@ export class CardPokemonComponent implements OnInit {
     this.checkPagination(this.flag);
     this.flag =  this.flag + index;
     this.consulta(this.flag);
+
+    window.scrollTo(0, 0);
 
   }
 

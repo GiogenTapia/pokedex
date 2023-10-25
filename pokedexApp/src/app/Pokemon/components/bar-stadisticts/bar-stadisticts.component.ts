@@ -58,12 +58,15 @@ export class BarStadistictsComponent implements OnInit {
         toolbar:{
           show: false
         },
+
         height: 250,
         type: "bar",
+
       },
       title:{
         text: this.title
       },
+
       colors: [
         "#008FFB",
         "#00E396",
@@ -76,12 +79,12 @@ export class BarStadistictsComponent implements OnInit {
       ],
       plotOptions: {
         bar: {
-          columnWidth: "45%",
+          columnWidth: "70%",
           distributed: true
         }
       },
       dataLabels: {
-        enabled: false
+        enabled: true
       },
       legend: {
         show: false
