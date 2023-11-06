@@ -4,11 +4,8 @@
   <app-spinner></app-spinner>
 </div>
 
-
 <div class="container text-center" *ngIf="pokemon && pokemonInfo">
-
-
-    <div class="card animate__animated animate__fadeInUp row  justify-content-center">
+    <div class="card animate__animated animate__fadeInUp row  justify-content-center mb-3">
       <div class="col"
         id="typeColor"
         [ngClass]="listType[0]">
@@ -54,17 +51,17 @@
           <app-bar-stadisticts  [listStats]="listStats" [title]="title" ></app-bar-stadisticts>
           </div>
         </div>
+      </div>
 
+    <div class="card animate__animated animate__fadeInUp justify-content-center row">
 
+        <h1>Movimientos</h1>
 
-
-
-
-
-
-
-
-
+          <div class="scroll row justify-content-center">
+            <h5 *ngFor="let item of pokemon.moves"
+             class="col-4 col-sm-3 mt-2 squard"
+             [ngClass]="listType[0]"> {{item.move.name | titlecase}} </h5>
+        </div>
       </div>
 
   </div>
