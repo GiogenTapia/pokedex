@@ -6,6 +6,7 @@ import { PokemonComponent } from './pages/pokemon/pokemon.component';
 import { CardPokemonComponent } from './components/card-pokemon/card-pokemon.component';
 import { BarStadistictsComponent } from './components/bar-stadisticts/bar-stadisticts.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { SearchBoxComponent } from './components/search-box/search-box.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     CardPokemonComponent,
     BarStadistictsComponent,
     SpinnerComponent,
+    SearchBoxComponent,
   ],
   imports: [
     CommonModule,

@@ -6,8 +6,9 @@ a {
   font-size: 50px;
 }
 
-div{
 
+div{
+  padding-top: 20px;
   background-color: red;
   height: 100%;
   box-shadow: 10px 5px 5px rgb(0, 0, 0);
@@ -19,4 +20,11 @@ div{
 
 hr {
   color: white;
+}
+
+
+@media screen and (max-width: 450px) {
+  div {
+    text-align: center;
+  }
 }
